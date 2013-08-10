@@ -7,11 +7,15 @@ module Refinery
 
       belongs_to :venue
 
+      belongs_to :image
+
       validates :title, :presence => true, :uniqueness => true
+      validates :seats, :numericality => true
+      validates :seat_cost, :numericality => true
 
       attr_accessible :title, :from, :to, :registration_link,
                       :venue_id, :excerpt, :description,
-                      :featured, :position
+                      :featured, :position, :seats, :seat_cost, :image_id
 
       delegate :name, :address,
                 :to => :venue,

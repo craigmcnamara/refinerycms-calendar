@@ -10,9 +10,11 @@ class CreateCalendarEvents < ActiveRecord::Migration
       t.text :description
       t.integer :position
       t.boolean :featured
+      t.integer :seats
+      t.integer :seat_costs
       t.string :slug
       t.integer :venue_id
-
+      t.integer :image_id
       t.timestamps
     end
 

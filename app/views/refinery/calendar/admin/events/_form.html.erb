@@ -17,6 +17,23 @@
   </div>
 
   <div class='field'>
+    <%= f.label :image -%>
+    <%= image_tag(@event.image.thumbnail("200x200#c").url) if @event.image %>
+    <br/>
+    <%= f.text_field :image_id -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :seats -%>
+    <%= f.text_field :seats -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :seat_cost -%>
+    <%= f.text_field :seat_cost -%>
+  </div>
+
+  <div class='field'>
     <%= f.label :from -%>
     <%= f.text_field :from, :class => 'datetime_range'  -%>
   </div>

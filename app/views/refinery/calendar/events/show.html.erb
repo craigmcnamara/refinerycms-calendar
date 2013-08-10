@@ -6,12 +6,15 @@
   <h4>Event details</h4>
   <h5><%= @event.venue_name %></h5>
 
-  <p>From <%= @event.from.strftime('%B %d, %Y %I:%M%p') %> to
-      <br><%= @event.to.strftime('%B %d, %Y %I:%M%p') %></p>
+  <p>From <%= @event.from.strftime('%B %d, %Y %I:%M%p') %> to <%= @event.to.strftime('%B %d, %Y %I:%M%p') %></p>
 
   <% if @event.registration_link.present? %>
     <p><%= link_to 'Register for this event', @event.registration_link %></p>
   <% end -%>
+
+  <% if @event.image %>
+    <%= image_tag @event.image.thumbnail("300x300#c").url %>
+  <% end %>
 
   <% if @event.venue_address.present? %>
     <p><%= link_to 'View it on a map', "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=#{CGI::escape(@event.venue.address)}&ie=UTF8&z=16" %></p>
